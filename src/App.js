@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import RecipesIndex from './screens/recipes/RecipesIndex';
+import NewRecipe from './screens/recipes/NewRecipe';
+import EditRecipe from './screens/recipes/EditRecipe'
+import DetailRecipe from './screens/recipes/DetailRecipe'
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/new" element={<NewRecipe />}/>
+        <Route path="/edit/:id" element={<EditRecipe />}/>
+        <Route path="/:id" element={<DetailRecipe />}/>
+        <Route path="/" element={<RecipesIndex />}/>
+      </Routes>
     </div>
   );
 }

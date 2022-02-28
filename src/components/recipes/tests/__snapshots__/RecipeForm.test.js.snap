@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdvvtL gaBRgU"
+  >
+    <header
+      class="sc-gsDKAQ jGoJmq"
+    >
+      New Recipe
+    </header>
+    <div
+      class="sc-dkPtRN PHDyg"
+    >
+      <div
+        class="sc-gKclnd fVLuFs"
+      >
+        <input
+          class="sc-iCfMLu gtbZOl"
+          placeholder="Name"
+          type="text"
+          value="test text recipe"
+        />
+        <textarea
+          class="sc-furwcr eoRGTG"
+          cols="30"
+          placeholder="Description"
+          rows="3"
+          type="area"
+        />
+        Ingredients
+        <div
+          class="sc-eCImPb gayBGf"
+        >
+          <ul>
+            <li
+              class="sc-pVTFL eOLXxe"
+            >
+              <span
+                class="sc-jrQzAO cOnMjS"
+              >
+                test text ingredient
+              </span>
+            </li>
+          </ul>
+        </div>
+        <input
+          class="sc-iCfMLu gtbZOl"
+          placeholder="New Ingredient"
+          type="text"
+          value=""
+        />
+        <button
+          class="sc-jRQBWg cMuxuo"
+        >
+           Add 
+        </button>
+      </div>
+      <button
+        class="sc-jRQBWg cMuxuo"
+      >
+         New Recipe 
+      </button>
+      <button
+        class="sc-jRQBWg cMuxuo"
+      >
+         Back 
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

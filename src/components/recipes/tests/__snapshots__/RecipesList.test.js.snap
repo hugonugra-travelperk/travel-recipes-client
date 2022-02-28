@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div>
+    <input
+      class="sc-pVTFL edDqrh"
+      placeholder="Search by Name"
+      type="text"
+      value=""
+    />
+    <button
+      class="sc-iCfMLu gMEgxH"
+    >
+       Search 
+    </button>
+  </div>
+  <div>
+    Loading...
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdvvtL gaBRgU"
+  >
+    <header
+      class="sc-gsDKAQ jGoJmq"
+    >
+      Recipes List
+      <br />
+      <a
+        href="/new"
+      >
+        <button
+          class="sc-jRQBWg cMuxuo"
+        >
+           New Recipe 
+        </button>
+      </a>
+    </header>
+    <div
+      class="sc-dkPtRN PHDyg"
+    >
+      <div>
+        <input
+          class="sc-pVTFL edDqrh"
+          placeholder="Search by Name"
+          type="text"
+          value=""
+        />
+        <button
+          class="sc-jRQBWg cMuxuo"
+        >
+           Search 
+        </button>
+      </div>
+      <div>
+        Loading...
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
