@@ -23,7 +23,9 @@ export default function DeleteButton(props) {
 
   return (
     <Button primary onClick={
-      () => { if (window.confirm('Are you sure you wish to delete this item?')) dispatch() }
+      () => { 
+        if (window.confirm('Are you sure you wish to delete this item?')) dispatch()
+      }
     }> Delete </Button>
   );
 }

@@ -8,8 +8,9 @@ export default function IngredientsList(props){
     <CardSubBody>
       <ul>
         {props.ingredients.map(function(item){
+          console.log(item)
           return (
-            <ListItem key={uuidv4()}>
+            <ListItem key={item.id}>
               <IngredientElement ingredient={item}/>
             </ListItem>
           )

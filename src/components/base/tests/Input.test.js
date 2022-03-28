@@ -2,8 +2,6 @@ import {render, cleanup} from "@testing-library/react"
 import "@testing-library/jest-dom";
 import {InputForm, Input, InputArea} from "../Input"
 
-afterEach(cleanup);
-
 it("renders", () => {
   const {asFragment} = render(<InputForm>Test text</InputForm>);
   expect(asFragment()).toMatchSnapshot();

@@ -3,8 +3,6 @@ import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
 import RecipeForm from "../RecipeForm"
 
-afterEach(cleanup);
-
 const recipe = {'id':'1', 'name': 'test text recipe',
           'ingredients': [{'id': '1', 'name': 'test text ingredient'}]
         }

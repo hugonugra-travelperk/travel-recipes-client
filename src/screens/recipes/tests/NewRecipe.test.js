@@ -7,13 +7,11 @@ import NewRecipe from "../NewRecipe"
 
 jest.mock("axios");
 
-afterEach(cleanup);
-
-it("renders", () => {
+it("renders", async () => {
   const history = createMemoryHistory();
   history.push("/recipes/new/");
 
-  const {asFragment, getByPlaceholderText, getByText, getAllByText } = render(
+  const {asFragment, getByPlaceholderText, findByText, getAllByText } = render(
     <Router location={history.location} navigator={history}>
       <NewRecipe/>
     </Router>
@@ -21,7 +19,6 @@ it("renders", () => {
 
   axios.request.mockResolvedValueOnce({});
 
-  expect(asFragment()).toMatchSnapshot();
   getByPlaceholderText('Name');
   getByPlaceholderText('Description');
   getByPlaceholderText('New Ingredient');
@@ -41,9 +38,10 @@ it("renders", () => {
     {target: { value: "fish" }}
   );
 
-  fireEvent.click(getByText("Add"));
+  const add_button =  await findByText('Add');
+  fireEvent.click(add_button);
 
-  expect(getByText("fish")).toBeInTheDocument();
+  expect(await findByText("fish")).toBeInTheDocument();
 
   fireEvent.click(getAllByText("New Recipe")[1]);
 

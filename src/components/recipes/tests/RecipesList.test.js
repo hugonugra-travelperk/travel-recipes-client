@@ -3,8 +3,6 @@ import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
 import RecipesList from "../RecipesList"
 
-afterEach(cleanup);
-
 it("renders", () => {
   const {asFragment} = render(
     <BrowserRouter>

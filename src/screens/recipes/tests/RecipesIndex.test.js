@@ -7,21 +7,18 @@ import RecipesIndex from "../RecipesIndex"
 
 jest.mock("axios");
 
-afterEach(cleanup);
-
 const BASE_URL = 'http://localhost:8000/api/recipes'
 
-it("renders", () => {
+it("renders", async () => {
   const history = createMemoryHistory();
   history.push("/");
 
-  const {asFragment, getByText} = render(
+  const {asFragment, findByText} = render(
     <Router location={history.location} navigator={history}>
       <RecipesIndex/>
     </Router>);
       
-    expect(asFragment()).toMatchSnapshot();
-    getByText('Recipes List');
+    findByText('Recipes List');
 });
 
 describe("List Recipes", () => {
@@ -45,19 +42,19 @@ describe("List Recipes", () => {
       axios.request.mockResolvedValueOnce(recipes);
 
       // when
-      const {getByText} = render(
+      const {findByText} = render(
           <Router location={history.location} navigator={history}>
             <RecipesIndex/>
           </Router>
         );
-      await waitFor(() => expect(getByText('Ceviche')).toBeInTheDocument());
+        await waitFor( async() => expect(await findByText('Ceviche')).toBeInTheDocument());
 
       // then
       expect(axios.request).toHaveBeenCalledWith({"method": "GET", "url": "/recipes/"});
-      expect(getByText('Ceviche'));
-      expect(getByText('fish with lemon'));
-      expect(getByText('fish'));
-      expect(getByText('lemon'));
+      expect(findByText('Ceviche'));
+      expect(findByText('fish with lemon'));
+      expect(findByText('fish'));
+      expect(findByText('lemon'));
     });
   });
 
@@ -70,16 +67,16 @@ describe("List Recipes", () => {
       axios.request.mockRejectedValueOnce(new Error(message));
 
       // when
-      const {getByText} = render(
+      const {findByText} = render(
         <Router location={history.location} navigator={history}>
           <RecipesIndex/>
         </Router>
       );
-      await waitFor(() => expect(getByText('Network Error')).toBeInTheDocument());
+      await waitFor(async() => expect(await findByText('Network Error')).toBeInTheDocument());
 
       // then
       expect(axios.request).toHaveBeenCalledWith({"method": "GET", "url": "/recipes/"});
-      expect(getByText('Network Error'));
+      expect(await findByText('Network Error')).toBeVisible();
     });
   });
 });

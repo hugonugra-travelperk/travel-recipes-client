@@ -3,8 +3,6 @@ import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
 import DeleteButton from "../DeleteButton"
 
-afterEach(cleanup);
-
 it("renders", () => {
   const {asFragment} = render(
     <BrowserRouter>

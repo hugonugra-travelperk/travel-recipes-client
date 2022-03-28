@@ -16,13 +16,11 @@ const state = {
   }
 }
 
-afterEach(cleanup);
-
-it("renders", () => {
+it("renders", async () => {
   const history = createMemoryHistory();
   history.push("/recipes/edit/1", state);
 
-  const {asFragment, getByDisplayValue, getByText, getByPlaceholderText, getAllByText} = render(
+  const {asFragment, getByDisplayValue, findByText, getByPlaceholderText, getAllByText} = render(
       <Router location={history.location} navigator={history}>
         <EditRecipe/>
       </Router>
@@ -30,10 +28,9 @@ it("renders", () => {
 
   axios.request.mockResolvedValueOnce({});
 
-  expect(asFragment()).toMatchSnapshot();
   getByDisplayValue(state.recipe.name);
   getByDisplayValue(state.recipe.description);
-  getByText(state.recipe.ingredients[0].name);
+  expect( await findByText(state.recipe.ingredients[0].name)).toBeVisible();
 
   fireEvent.change(
     getByPlaceholderText("Name"),
@@ -50,9 +47,10 @@ it("renders", () => {
     {target: { value: "fish" }}
   );
 
-  fireEvent.click(getByText("Add"));
+  const add_button =  await findByText('Add');
+  fireEvent.click(add_button);
 
-  expect(getByText("fish")).toBeInTheDocument();
+  expect(await findByText("fish")).toBeInTheDocument();
 
   fireEvent.click(getAllByText("Edit Recipe")[1]);
 

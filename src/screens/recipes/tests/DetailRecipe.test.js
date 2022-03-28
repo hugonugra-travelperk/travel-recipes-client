@@ -13,19 +13,16 @@ const state = {
   }
 }
 
-afterEach(cleanup);
-
-it("renders", () => {
+it("renders", async () => {
   const history = createMemoryHistory();
   history.push("/recipes/1", state);
 
-  const {asFragment, getByText} = render(
+  const {asFragment, findByText} = render(
     <Router location={history.location} navigator={history}>
       <DetailRecipe/>
     </Router>);
       
-    expect(asFragment()).toMatchSnapshot();
-    getByText(state.recipe.name);
-    getByText(state.recipe.description);
-    getByText(state.recipe.ingredients[0].name);
+    expect(await findByText(state.recipe.name)).toBeVisible();
+    expect(await findByText(state.recipe.description)).toBeVisible();
+    expect(await findByText(state.recipe.ingredients[0].name)).toBeVisible();
 });
